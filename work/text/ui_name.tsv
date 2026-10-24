@@ -1,0 +1,16 @@
+번호	원문	번역	메모
+A449CE80	総合評価画面	종합 평가 화면	box=33,28,209,66 mode=row24 fi=15 oi=0 ol=2 noaa
+A4529E80	総合評価画面	종합 평가 화면	box=32,29,212,64 mode=row214 fi=15 oi=0 ol=2 noaa
+A45B6E80	総合評価画面	종합 평가 화면	box=30,29,213,65 mode=row214 fi=15 oi=0 ol=2 noaa
+A4643E80	総合評価画面	종합 평가 화면	box=32,29,212,65 mode=row214 fi=15 oi=0 ol=2 noaa
+A444BD20	評価点｜点｜合計ポイント	평가점|점|합계 포인트	box=0,8,94,39 box=338,0,392,40 box=0,54,178,88 align=l fi=0 oi=11 ol=2 noaa boxfi=2:1
+A47399F0	英語表記	영문	tab
+A4739C80	英語表記	영문	tab
+A4739F10	ひらがな	한글1	tab
+A473A1A0	ひらがな	한글1	tab
+A473A430	カタカナ	한글2	tab
+A473A6C0	カタカナ	한글2	tab
+A44E0D00	お知らせ	알림	box=62,31,200,63 mode=row24 fi=15 oi=0 ol=2 noaa align=c repl=38,44,58,62:0.1.2.3>6 repl=44,58,58,62:0.1.2.3>5 repl=58,62,58,62:0.1.2.3>4
+A456DD00	お知らせ	알림	box=32,29,212,64 mode=row214 fi=15 oi=0 ol=2 noaa align=c
+A45FAD00	お知らせ	알림	box=30,29,213,65 mode=row214 fi=15 oi=0 ol=2 noaa align=c
+A4687D00	お知らせ	알림	box=32,29,212,65 mode=row214 fi=15 oi=0 ol=2 noaa align=c

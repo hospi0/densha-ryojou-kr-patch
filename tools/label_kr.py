@@ -190,11 +190,11 @@ def bitmap_mask(text, h, name=None):
     return m
 
 
-def render_mask(text, h, w_max, stroke, font=None, italic=0.0, raw=False):
-    """한글 한 줄 → 이진 마스크(높이 h = 잉크 높이)"""
+def render_mask(text, h, w_max, stroke, font=None, italic=0.0, raw=False, ttf=False):
+    """한글 한 줄 → 이진 마스크(높이 h = 잉크 높이). ttf = 작아도 나눔고딕(행선판 통일)"""
     if not text.strip():
         return np.zeros((h, 1), bool)
-    if h <= 12:
+    if h <= 12 and not ttf:
         # 폭에 들어가는 첫 갈무리(굵게 → 보통 → 좁은꼴 → 9 → 7). 잘라 넣지 않음.
         names = (['Galmuri11-Bold.bdf', 'Galmuri11.bdf', 'Galmuri11-Condensed.bdf'] if h >= 11 else []) + \
                 (['Galmuri9.bdf'] if h >= 9 else []) + ['Galmuri7.bdf']
@@ -216,7 +216,8 @@ def render_mask(text, h, w_max, stroke, font=None, italic=0.0, raw=False):
     big = Image.fromarray(a.astype(np.uint8) * 255).resize((w * SS, h * SS), Image.BILINEAR)
     cov = np.array(big, float).reshape(h, SS, w, SS).mean((1, 3)) / 255
     if raw: return cov                              # 안티에일리어스 글자용 덮임 비율
-    m = cov >= 0.5
+    nat = max(1, int(round(W * h / H)))
+    m = cov >= (0.35 if ttf and w < nat * 0.9 else 0.5)   # 가로로 눌린 나눔 글자는 획이 가늘어짐 → 기준을 낮춰 굵기 유지(행선판 «제각각»)
     # 획 굵기 맞추기: 원본 획(거리 변환 90 분위)보다 가늘면 부풀림
     cur = int(np.percentile(dist_in(m)[m], 90)) if m.any() else 1
     if stroke - cur >= 2:                           # 원본이 확실히 굵을 때만 1px
@@ -251,7 +252,7 @@ def draw(t, an, kr, cur, align=None, opt=None):
         cw = max(ix1 - ix0, (x1 - x0) - 2) - 2 * olw;   # 세로쓰기 폭 = 상자 폭(원본 下 가 上 보다 좁아 가는 꼴로 떨어지던 것)
         chars = [c for c in kr if c.strip()]
         cell = min(cw, (h - (len(chars) - 1)) // max(1, len(chars)))
-        ms = [render_mask(c, cell, cw, an['stroke']) for c in chars]
+        ms = [render_mask(c, cell, cw, an['stroke']) for c in chars]   # 세로 «하행/상행» 작은 칸은 나눔이면 뭉개짐(노란 표지 검은 덩어리) → 그대로
         gap = (h - sum(x.shape[0] for x in ms)) / max(1, len(ms) - 1) if len(ms) > 1 else 0
         W_ = max(x.shape[1] for x in ms); m = np.zeros((h, W_), bool); yy_ = 0.0
         for x in ms:
@@ -263,15 +264,16 @@ def draw(t, an, kr, cur, align=None, opt=None):
             if not opt.get('thin'):                 # 가로 1px 굵게(원본 획 2px) — thin: 굵은 꼴 그대로(차내 신호 «차내»가 «치니»로 뭉개짐)
                 m = np.pad(m, ((0, 0), (0, 1))); m[:, 1:] |= m[:, :-1].copy()
         else:
-            m = render_mask(kr, max(4, h), wmax, an['stroke'], opt.get('font'), float(opt.get('italic', 0)))
+            m = render_mask(kr, max(4, h), wmax, an['stroke'], opt.get('font'), float(opt.get('italic', 0)), ttf=bool(opt.get('nanum')))
     mh, mw = m.shape
     left = align == 'l' or (align is None and ix0 <= 3)
     ox = (ix0 + olw) if left else int(round((ix0 + ix1) / 2 - mw / 2))
+    if align == 'L': ox = olw                      # 판 왼쪽 끝에 붙임(1文字消去 — 원본 «１»이 x≈4 에서 시작해 혼자 들여쓰기됨, 사용자 지적)
     ox = max(olw, min(ox, (x1 - x0) - mw - olw)); oy = iy0 + olw
     if opt.get('vc'): oy = max(0, ((y1 - y0) - mh) // 2)   # 상자 세로 가운데(화면 조정 버튼 — 갈무리가 위로 붙음)
     if an.get('aa') and not opt.get('vert') and not opt.get('bmp') and not opt.get('noaa') and h > 12:
         # 안티에일리어스 글자: 덮임 비율 → 바탕~채움 사이 목표 밝기 → 원본 글자에 쓰인 번호 중 가장 가까운 것
-        cov = render_mask(kr, max(4, h), wmax, an['stroke'], opt.get('font'), float(opt.get('italic', 0)), raw=True)
+        cov = render_mask(kr, max(4, h), wmax, an['stroke'], opt.get('font'), float(opt.get('italic', 0)), raw=True, ttf=bool(opt.get('nanum')))
         ch_, cw_ = cov.shape
         ox = (ix0 if left else int(round((ix0 + ix1) / 2 - cw_ / 2))); ox = max(0, min(ox, (x1 - x0) - cw_))
         C = np.zeros(sub.shape); C[oy:oy + ch_, ox:ox + cw_] = cov[:sub.shape[0] - oy, :sub.shape[1] - ox]
@@ -430,7 +432,7 @@ def draw_flat(t, cur, b, kr, vert, opt):
             m = m[np.round(np.linspace(0, m.shape[0] - 1, h)).astype(int)]
     elif opt.get('bmp'):
         m = bitmap_mask(kr, 14, opt['bmp'])
-    elif h <= 12:   # 작은 글자는 꼴 하나로 고정(폭 따라 굵게/보통이 바뀌면 판마다 굵기 들쭉날쭉)
+    elif h <= 12 and not opt.get('nanum'):   # 작은 글자는 꼴 하나로 고정(폭 따라 굵게/보통이 바뀌면 판마다 굵기 들쭉날쭉) · «nanum» = 작아도 나눔고딕(행선판 — 사용자 «행선지 폰트 제각각, 나눔고딕으로 통일»)
         for nm in (['Galmuri11.bdf', 'Galmuri11-Condensed.bdf'] if h >= 11 else []) + ['Galmuri9.bdf', 'Galmuri7.bdf']:
             m = bitmap_mask(kr, h, nm)
             if m.shape[1] <= W: break
@@ -438,7 +440,7 @@ def draw_flat(t, cur, b, kr, vert, opt):
             m = bitmap_mask(kr, h, 'Galmuri9.bdf')
             m = m[:, np.round(np.linspace(0, m.shape[1] - 1, W - 1)).astype(int)]
     else:
-        m = render_mask(kr, max(4, h), W - 2, 0, opt.get('font'), float(opt.get('italic', 0)))
+        m = render_mask(kr, max(4, h), W - 2, 0, opt.get('font'), float(opt.get('italic', 0)), ttf=bool(opt.get('nanum')))
     mh, mw = m.shape; mh = min(mh, H); mw = min(mw, W); m = m[:mh, :mw]
     oy = 0 if opt.get('top') else max(0, (H - mh) // 2)   # 칸 세로 가운데(원본 잉크 중심을 따르면 판마다 위·아래로 붙음 — 사용자 지적)
     ox = max(0, (W - mw) // 2)
@@ -448,13 +450,76 @@ def draw_flat(t, cur, b, kr, vert, opt):
     sub[oy:oy + mh, ox:ox + mw][m] = fill
 
 
+def draw_tab(t, kr, memo):
+    """이름 입력 세로 탭(16×72, 2026-10-24): 팔레트 = 한 색의 투명도 계단 → 통째로 투명하게 지우고
+    나눔 엑스트라볼드 음절을 덮임 비율 = 불투명도로(가장 가까운 알파 번호) 세로로 쌓아 칸 가운데에. 간격 = 원본 가나 18px."""
+    al = t.P[:, 3].astype(float); clear = int(np.argmin(al)); amax = al.max()
+    sz = int(re.search(r'(?:^| )size=(\d+)', memo).group(1)) if re.search(r'(?:^| )size=(\d+)', memo) else 14
+    pitch = int(re.search(r'(?:^| )pitch=(\d+)', memo).group(1)) if re.search(r'(?:^| )pitch=(\d+)', memo) else 18
+    font = ImageFont.truetype(FONT, sz * SS)
+    out = np.full_like(t.idx, clear)
+    y0 = (t.h - pitch * len(kr)) // 2
+    for i, ch in enumerate(kr):
+        im = Image.new('L', (pitch * SS * 2, pitch * SS * 2), 0)
+        ImageDraw.Draw(im).text((SS * 2, SS * 2), ch, font=font, fill=255)
+        a = np.array(im); ry = np.nonzero(a.any(1))[0]; rx = np.nonzero(a.any(0))[0]
+        a = a[ry.min():ry.max() + 1, rx.min():rx.max() + 1]
+        hh = min(pitch - 2, max(1, int(round(a.shape[0] / SS)))); ww = min(t.w - 1, max(1, int(round(a.shape[1] / SS))))
+        cov = np.array(Image.fromarray(a).resize((ww, hh), Image.BOX), float) / 255
+        oy = y0 + i * pitch + (pitch - hh) // 2; ox = (t.w - ww) // 2
+        for (r, c) in zip(*np.nonzero(cov > 0.06)):
+            out[oy + r, ox + c] = int(np.argmin(np.abs(al - min(1, cov[r, c] * 1.15) * amax)))
+    return out
+
+
+def draw_addr(t, kr):
+    """명소 주소판(304×100, 2026-10-24): 판 15번·글자 1번·사이 계단. 안쪽(테 4px 안)을 판 색으로 지우고
+    나눔 엑스트라볼드(한글 높이 13px)를 x=9, 줄 y=8+17i 에 덮임 → 밝기 계단 번호로. «|» = 줄, 폭(287px) 넘으면 띄어쓰기에서 나눔, 5줄 넘으면 가로만 좁힘."""
+    lum = t.lum(); plate = int(np.argmax(lum)); ink = int(np.argmin(np.where(t.P[:, 3] > 0, lum, 1e9)))
+    ramp = [i for i in range(16) if t.P[i, 3] > 0]
+    out = t.idx.copy(); out[4:t.h - 4, 4:t.w - 4] = plate
+    ref = ImageFont.truetype(FONT, 100 * SS); bb = ref.getbbox('한'); size = int(round(100 * 13 / ((bb[3] - bb[1]) / SS)))
+    font = ImageFont.truetype(FONT, size * SS); top = font.getbbox('한')[1]
+    X0, Y0, PITCH, WMAX, NMAX = 9, 8, 17, t.w - 20, 5   # 오른쪽 테에 붙지 않게
+    wid = lambda s: font.getlength(s) / SS
+    lines = []
+    for ln in kr.split('|'):
+        ln = ln.strip()
+        if wid(ln) <= WMAX: lines.append(ln); continue
+        cur = ''
+        ws = []
+        for w_ in ln.split(' '):   # «도보 8분»·숫자 앞에서 끊지 않음
+            if ws and re.match(r'^[0-9]', w_): ws[-1] += ' ' + w_
+            else: ws.append(w_)
+        for w_ in ws:
+            if cur and wid(cur + ' ' + w_) > WMAX: lines.append(cur); cur = w_
+            else: cur = (cur + ' ' + w_) if cur else w_
+        lines.append(cur)
+    if len(lines) > NMAX: lines = [l.strip() for l in kr.split('|')]
+    for i, ln in enumerate(lines):
+        im = Image.new('L', (int(wid(ln) * SS) + SS * 4, PITCH * SS), 0)
+        ImageDraw.Draw(im).text((0, -top), ln, font=font, fill=255)
+        w = max(1, int(round(im.width / SS))); sq = min(1.0, WMAX / w)
+        cov = np.array(im.resize((max(1, int(w * sq)), PITCH), Image.BOX), float) / 255
+        y0 = Y0 + i * PITCH
+        for (r, c) in zip(*np.nonzero(cov > 0.05)):
+            y, x = y0 + r, X0 + c
+            if y >= t.h - 4 or x >= t.w - 4: continue
+            tgt = lum[plate] + min(1, cov[r, c] * 1.25) * (lum[ink] - lum[plate])
+            out[y, x] = ramp[int(np.argmin(np.abs(lum[ramp] - tgt)))]
+    return out
+
+
 def make(f, I, key, kr, memo):
     t = Tex(f, *I[key])
+    if re.search(r'(?:^| )tab(?: |$)', memo): return t, draw_tab(t, kr, memo)
+    if re.search(r'(?:^| )addr(?: |$)', memo): return t, draw_addr(t, kr)
     bx = re.findall(r'box=([0-9,]+)(:[a-z0-9]+)?', memo)     # «box=x0,y0,x1,y1:v» = 그 구역 세로쓰기, «:f» 평판, «:fv» 둘 다, «:f12» 평판+글자 높이
     if any('f' in v for _, v in bx):
         cur = t.idx.copy(); texts = kr.split('|')
         o2 = dict(re.findall(r'(font|italic|bmp|size|fi|cell|bgi|oi)=([\w.-]+)', memo))
         if re.search(r'(?:^| )top(?: |$)', memo): o2['top'] = True
+        if re.search(r'(?:^| )nanum(?: |$)', memo): o2['nanum'] = True
         for bi, ((b, v), k) in enumerate(zip(bx, texts)):
             bb = tuple(map(int, b.split(',')))
             sz = re.search(r'\d+', v)
@@ -473,6 +538,7 @@ def make(f, I, key, kr, memo):
     md = re.search(r'mode=(\w+)', memo); md = md.group(1) if md else None
     opt = dict(re.findall(r'(font|italic|bmp|ol|size)=([\w.-]+)', memo))
     if 'noaa' in memo: opt['noaa'] = True
+    if re.search(r'(?:^| )nanum(?: |$)', memo): opt['nanum'] = True   # 작아도 나눔고딕(행선 표지 — 행선판과 통일)
     if re.search(r'(?:^| )vc(?: |$)', memo): opt['vc'] = True
     if re.search(r'(?:^| )thin(?: |$)', memo): opt['thin'] = True
     cur = t.idx.copy()
@@ -488,13 +554,15 @@ def make(f, I, key, kr, memo):
         boxes = [((wood_box(t) if 'wood' in memo else plate_box(t, boxes[0][0])), boxes[0][1])]
     fi = re.search(r'(?:^| )fi=(\d+)', memo); oi = re.search(r'(?:^| )oi=(\d+)', memo)   # 채움·둘레 번호 직접 지정(판정이 뒤집히는 그림)
     cl = re.findall(r'(?:^| )clear=(\d+),(\d+)', memo)   # 상자 안 번호 a → b 로 먼저 지움(글자 뒤 강조 판 — 選択 버튼 점 잔상), 여러 개 가능
-    for (b, v), k in zip(boxes, texts):
+    boxfi = {int(a_): int(b_) for a_, b_ in re.findall(r'(?:^| )boxfi=(\d+):(\d+)', memo)}   # 상자별 채움(1부터) — 한 판에 색이 다른 글자(평가점 갈색 + «점» 파랑, 2026-10-24)
+    for bi, ((b, v), k) in enumerate(zip(boxes, texts)):
         for a_, b2 in cl:
             s_ = cur[b[1]:b[3], b[0]:b[2]]; s_[s_ == int(a_)] = int(b2)
         an = analyse(t, b, md, 'fill=dark' in memo)
         if cl:   # 지운 판 색으로 바탕 고정(원본 판정은 바탕을 어두운 테로 잡아 판이 검게 칠해짐 — 車内信号)
             pb = int(cl[0][1]); an['bgpar'] = {0: pb, 1: pb}; an['rowbg'] = None
         if fi: an['fill'] = int(fi.group(1)); an['ramp'] = [int(fi.group(1))]
+        if bi + 1 in boxfi: an['fill'] = boxfi[bi + 1]; an['ramp'] = [boxfi[bi + 1]]
         if oi: an['outline'] = int(oi.group(1))
         # 묶음 통일(나무 버튼 — 사용자 «입문편 자료관 진동설정도 다른것들이랑 폰트 맞춰»): 획 굵기·둘레색(가장 가까운 색)·둘레 폭 고정
         sk = re.search(r'(?:^| )stroke=(\d+)', memo); oc = re.search(r'(?:^| )olc=(\d+),(\d+),(\d+)', memo)
@@ -506,6 +574,8 @@ def make(f, I, key, kr, memo):
             lumP = t.P[:, :3] @ np.array([.3, .59, .11]); op = [i for i in range(16) if t.P[i, 3] > 100]
             b_ = max(op, key=lambda i: lumP[i]); an['fill'] = b_; an['ramp'] = [b_]; an['outline'] = None; an['shadow'] = None
         cur = draw(t, an, k.strip(), cur, al, dict(opt, vert=v))
+    for y0_, y1_, x0_, x1_, ls_, to_ in re.findall(r'(?:^| )repl=(\d+),(\d+),(\d+),(\d+):([\d.]+)>(\d+)', memo):   # 사각 안 지정 번호 → 한 번호(원본 빛 번짐 잔여 — 밤 버튼 노란 점, 2026-10-24)
+        r_ = cur[int(y0_):int(y1_), int(x0_):int(x1_)]; r_[np.isin(r_, [int(v) for v in ls_.split('.')])] = int(to_)
     kp =re.search(r'(?:^| )keep=(\d+),(\d+),(\d+)', memo)
     if kp:   # 원본 화살표 그림(x0~x1)을 살려 한글 앞에 붙이고 둘을 함께 가운데로(사용자 «화살표 왜 안 고쳤어» — 한글 꼴 ↑ 이 작음)
         ax0, ax1, gap = map(int, kp.groups()); bx0, by0, bx1, by1 = boxes[0][0]

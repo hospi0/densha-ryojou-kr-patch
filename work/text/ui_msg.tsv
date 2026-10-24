@@ -9,11 +9,11 @@ A473F960	運転士登録	운전사 등록	box=40,30,210,64 mode=row208 fi=15 oi=
 A4742260	運転士登録	운전사 등록	box=34,26,212,63 mode=row213 fi=15 oi=0 ol=2 noaa
 A4744D50	運転士登録	운전사 등록	box=24,29,222,66 mode=row210 fi=15 oi=0 ol=2 noaa
 84072760	運転評価	운전 평가	box=18,12,134,48 fi=2 oi=14 ol=2 noaa
-A473BB70	総合評価／｜点	종합 평가/|점	box=0,0,162,40 box=220,0,264,40
+A473BB70	総合評価／｜点	종합 평가/|점	box=0,0,162,40 box=220,0,264,40 fi=0 oi=15 ol=2 noaa
 840766D0	持ち点数	보유 점수	box=20,30,116,60 fi=7 oi=15 ol=1 noaa
 853ADDC0	アナウンスボタン	안내 방송 버튼	box=14,89,126,107:f
 A4739200	文字種変更	문자 종류 변경	bmp=Galmuri11-Bold.bdf thin fi=15 noaa vc
-A4739550	1文字消去	한 글자 지우기	bmp=Galmuri11-Bold.bdf thin fi=15 noaa vc
+A4739550	1文字消去	한 글자 지우기	bmp=Galmuri11-Bold.bdf thin fi=15 noaa vc align=L
 A47398A0	決定	결정	bmp=Galmuri11-Bold.bdf thin fi=15 noaa vc
 A4739070	選択	선택	alpha bmp=Galmuri11-Bold.bdf
 853BDA20	ハイスコア ネーム｜合計 ポイント	하이스코어 네임|합계 포인트	box=10,10,126,24:f box=126,106,244,119:f fi=0 bgi=15

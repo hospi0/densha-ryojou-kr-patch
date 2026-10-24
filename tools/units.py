@@ -14,7 +14,7 @@ W = lambda *p: os.path.join(ROOT, 'work', *p)
 TOK = re.compile(r'\$(?:[nNkpzZu]|[a-zA-Z][0-9]*(?:,[0-9]+)*)|~[a-zA-Z] *[0-9]+(?:, *[0-9]+)*')   # $n 뒤 반각 숫자는 글(«$n501»)
 LEAD = re.compile(r'^(?:%s|\$[0-9]+,[0-9]+|\.[0-9])+' % TOK.pattern)   # 쪽 머리 «$15,0»·«.1» = 원문 오타 코드 조각(교토 안내) — 원문 그대로
 SPLIT = 20 * 1024
-HALF = str.maketrans({',': '，', '.': '．', '!': '！', '?': '？', ':': '：', '(': '（', ')': '）', '~': '～', '·': '・'})   # % 는 printf(«%s») — 바꾸지 않음
+HALF = str.maketrans({'+': '＋', ',': '，', '.': '．', '!': '！', '?': '？', ':': '：', '(': '（', ')': '）', '~': '～', '·': '・'})   # % 는 printf(«%s») — 바꾸지 않음
 
 
 def TOKSAFE(s, f):
@@ -33,7 +33,7 @@ def bw(s):
     """화면 폭(바이트)."""
     s = TOK.sub('', s)
     return sum(0 if '' <= c <= '' else                 # 줄바꿈 중 토큰 자리표(wrap)
-               2 if ('가' <= c <= '힣' or len(c.encode('cp932', 'replace')) == 2) else 1 for c in s)
+               2 if ('가' <= c <= '힣' or len(c.encode('cp932', 'replace')) == 2) else 1 for c in s)   # ★반각 공백 = 반 칸(1바이트) — 스샷 실측 2026-10-24 20:14(글자 ≈61px·공백 ≈30px). 한때 «공백도 한 칸»으로 바꿨던 건 오판(진짜 원인은 상자 폭)
 
 
 def src_rows():
@@ -55,10 +55,10 @@ def pages(t):
     return out
 
 
-BOXES = [(0x1261E0, 0x138440, 52),                  # 관광 안내 창 26칸(스샷 11.png, 원문 최대 52)
-         (0x138440, 0x13E670, 50),                  # 자료관 설명 창 25칸(스샷 5.png) — 차량·특산품·명소 설명
-         (0x13F820, 0x140400, 50),
-         (0x141B80, 0x1423D0, 52),                  # 입문 시작·끝 교관 말(관광 안내와 같은 창, 스샷 11·20.png)
+BOXES = [(0x1261E0, 0x138440, 50),                  # 관광 안내 창 ★50바이트 = 25칸(실측 2026-10-24: 글자 시작 x≈139·간격 ≈58.7px·공백 반 칸, 테두리 x=1600 — 할일/11.png·map_bug_1831.png)
+         (0x138440, 0x13E670, 51),                  # 자료관 설명 창 — 차량·특산품·명소 설명. ★51바이트 = 25.5칸(실측 2026-10-24: 글자 시작 x≈84, 글자 ≈61px·공백 ≈30px, 테두리 안쪽 x≈1655. 글자 24+공백 4 = 52바이트 줄은 테두리 10px 넘음, 23+5 = 51바이트 줄은 들어감) · ★쪽 넘김 없음(원본 1쪽, $k$p 넣으면 ▽만 뜨고 안 넘어감)
+         (0x13F820, 0x140400, 51),                  # 노선 소개(같은 창) 51바이트
+         (0x141B80, 0x1423D0, 50),                  # 입문 시작·끝 교관 말(관광 안내와 같은 창) 50바이트
          (0x146DD0, 0x149800, 32)]                  # 운전 중 조언 창 16칸×3줄(스샷 12~15.png) — 엔진이 글자 단위로 자동 줄바꿈 → 낱말 단위로 미리 $n                  # 자료관 노선 소개(같은 상자, $k$p 씀). 그 사이 0x13E670~ = 목록 제목(한 줄)
 
 
@@ -72,6 +72,7 @@ def box(t, o=None):
     if region == 4:                                 # 조언 창: 폭 = 상자(원문 줄이 더 넓어도 엔진이 32 에서 꺾음), 줄 수 = 원문 자동 줄바꿈 줄 수와 3 중 큰 것
         width = 32
         return width, max(3, max(sum(-(-bw(x) // 32) or 1 for x in re.split(r'\$[nN]|\n', b)) for _, b, _ in pages(t))), True, region
+    if region in (0, 1, 2, 3): width = BOXES[region][2]   # 실측 폭 그대로(원문 줄 52 를 따르면 테두리 넘음)
     return width, max(mx_lines, 4), multi, region   # 상자 = 4줄(관광 안내·자료관 스샷)
 
 
@@ -187,7 +188,7 @@ def check():
                 if bw(x) > width:
                     if multi: bad.append((key, '폭 %d > %d: %s' % (bw(x), width, x)))
                     else: wide.append((key, bw(x), width, x))   # 한 줄 문자열(목록 제목 등) — 칸 폭은 실기로
-            if len(L) > maxl and region in (1, 2):         # 자료관 = 4줄마다 쪽 넘김(노선 소개 13F820 등이 같은 상자에서 $k$p) ⏳명소·특산품 화면 실기
+            if len(L) > maxl and region == 2:   # 노선 소개(13F820~)만 원본이 $k$p 씀. 구역 1 은 쪽 넘김 안 됨(실기)         # 자료관 = 4줄마다 쪽 넘김(노선 소개 13F820 등이 같은 상자에서 $k$p) ⏳명소·특산품 화면 실기
                 paged.append(key)
                 chunks = ['$n'.join(L[i:i + maxl]) for i in range(0, len(L), maxl)]
                 lay.append('%s [%d줄/폭%d·쪽 나눔]\n  ' % (key, len(L), width) + '\n  ── 쪽 ──\n  '.join('\n  '.join(L[i:i + maxl]) for i in range(0, len(L), maxl)))

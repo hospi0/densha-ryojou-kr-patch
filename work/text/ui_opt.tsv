@@ -1,0 +1,11 @@
+번호	원문	번역	메모
+856A6460	距離メーター表示	거리 미터 표시	옵션 항목 box=10,6,236,48 align=c font=M italic=0.2
+856A9930	速度メーター表示	속도 미터 표시	옵션 항목 box=10,6,236,48 align=c font=M italic=0.2
+856ACE00	乗客の反応	승객 반응	옵션 항목 box=10,6,236,48 align=c font=M italic=0.2
+856BA140	オートセーブ	자동 저장	옵션 항목 box=10,6,236,48 align=c font=M italic=0.2
+856BD610	音楽	음악	옵션 항목 box=8,6,118,48 align=c font=M italic=0.2
+856C0AE0	音声	음성	옵션 항목 box=8,6,118,48 align=c font=M italic=0.2
+856C3FB0	効果音	효과음	옵션 항목 box=8,6,118,48 align=c font=M italic=0.2
+856B02D0	画面位置調整	화면 위치 조정	옵션 항목 box=60,6,420,48 align=c font=M italic=0.2
+856B37A0	データをロードする	데이터 로드	옵션 항목 box=60,6,420,48 align=c font=M italic=0.2
+856B6C70	データをセーブする	데이터 세이브	옵션 항목 box=60,6,420,48 align=c font=M italic=0.2

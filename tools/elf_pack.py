@@ -17,6 +17,7 @@ FOFF, VBASE = 0x80, 0x100000                       # 프로그램 헤더 0: 파�
 VA = lambda o: o - FOFF + VBASE
 FILESZ = 0x14B580                                  # 프로그램 헤더 0 파일 크기
 ALIGN = 8
+KEEP = {0x14AC40, 0x14AD00, 0x14ADC0}           # 이름 입력 자판 3벌 = 0xC0 간격 배열 → 옮기지 않음(코드가 «시작+탭×0xC0»으로 읽을 수 있음, 2026-10-24)
 
 
 def unesc(t):
@@ -43,6 +44,7 @@ def scan(b):
                 if rs == rt and op in (0x09, 0x0D, 0x20, 0x24, 0x23, 0x21, 0x25):
                     v = (imm << 16) + (imm2 - 0x10000 if imm2 >= 0x8000 and op != 0x0D else imm2)
                     if lo_v <= v < hi_v: coderef.add(v - VBASE + FOFF)
+    coderef |= KEEP
     return ptrs, coderef
 
 

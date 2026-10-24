@@ -100,27 +100,41 @@
 83ECC6A0	入換停止線	입환 정지선	size=23
 83ED0870	停止位置	정지 위치	초록 판 size=23
 83F263D0	一時停止	일시 정지	size=23
-88039670	選択	선택	안내 띠 240×20 bmp=Galmuri14.bdf noaa fill=dark ol=1
-8803A020	戻る	돌아가기	bmp=Galmuri14.bdf noaa fill=dark ol=1
-8803A9D0	決定	결정	bmp=Galmuri14.bdf noaa fill=dark ol=1
-8803B380	左右：選択／上下：演奏番号選択	좌우: 선택 / 상하: 연주 번호 선택	bmp=Galmuri14.bdf noaa fill=dark ol=1
-8803BD30	前の解説へ	이전 해설로	bmp=Galmuri14.bdf noaa fill=dark ol=1
-8803C6E0	キャンセル	취소	bmp=Galmuri14.bdf noaa fill=dark ol=1
-8803D090	次の解説へ	다음 해설로	bmp=Galmuri14.bdf noaa fill=dark ol=1
-8803DA40	拡大写真表示へ	확대 사진 보기	bmp=Galmuri14.bdf noaa fill=dark ol=1
-8803E3F0	前の場所に戻る	이전 장소로 돌아가기	bmp=Galmuri14.bdf noaa fill=dark ol=1
-8803EDA0	終了	종료	bmp=Galmuri14.bdf noaa fill=dark ol=1
-8803F750	メッセージ送り	메시지 넘기기	bmp=Galmuri14.bdf noaa fill=dark ol=1
-88040100	次の場所に行く	다음 장소로 가기	bmp=Galmuri14.bdf noaa fill=dark ol=1
-88040AB0	前の写真へ	이전 사진으로	bmp=Galmuri14.bdf noaa fill=dark ol=1
-88041460	次の写真へ	다음 사진으로	bmp=Galmuri14.bdf noaa fill=dark ol=1
-88041E10	解説に戻る	해설로 돌아가기	bmp=Galmuri14.bdf noaa fill=dark ol=1
-880427C0	説明消去	설명 지우기	bmp=Galmuri14.bdf noaa fill=dark ol=1
-88043170	次のページへ	다음 페이지로	bmp=Galmuri14.bdf noaa fill=dark ol=1
-88043B20	回転	회전	bmp=Galmuri14.bdf noaa fill=dark ol=1
-880444D0	縮小	축소	bmp=Galmuri14.bdf noaa fill=dark ol=1
-88044E80	拡大	확대	bmp=Galmuri14.bdf noaa fill=dark ol=1
-88045830	元の位置に戻す	원래 위치로	bmp=Galmuri14.bdf noaa fill=dark ol=1
-880461E0	選択画面へ	선택 화면으로	bmp=Galmuri14.bdf noaa fill=dark ol=1
+88039670	選択	선택	안내 띠 240×20 noaa fill=dark ol=2 size=16 stroke=2
+8803A020	戻る	뒤로	noaa fill=dark ol=2 size=16 stroke=2
+8803A9D0	決定	결정	noaa fill=dark ol=2 size=16 stroke=2
+8803B380	左右：選択／上下：演奏番号選択	좌우: 선택 / 상하: 연주 번호 선택	noaa fill=dark ol=2 size=16 stroke=2
+8803BD30	前の解説へ	이전 해설로	noaa fill=dark ol=2 size=16 stroke=2
+8803C6E0	キャンセル	취소	noaa fill=dark ol=2 size=16 stroke=2
+8803D090	次の解説へ	다음 해설로	noaa fill=dark ol=2 size=16 stroke=2
+8803DA40	拡大写真表示へ	확대 사진 보기	noaa fill=dark ol=2 size=16 stroke=2
+8803E3F0	前の場所に戻る	이전 장소로	noaa fill=dark ol=2 size=16 stroke=2
+8803EDA0	終了	종료	noaa fill=dark ol=2 size=16 stroke=2
+8803F750	メッセージ送り	메시지 넘기기	noaa fill=dark ol=2 size=16 stroke=2
+88040100	次の場所に行く	다음 장소로 가기	noaa fill=dark ol=2 size=16 stroke=2
+88040AB0	前の写真へ	이전 사진으로	noaa fill=dark ol=2 size=16 stroke=2
+88041460	次の写真へ	다음 사진으로	noaa fill=dark ol=2 size=16 stroke=2
+88041E10	解説に戻る	해설로	noaa fill=dark ol=2 size=16 stroke=2
+880427C0	説明消去	설명 지우기	noaa fill=dark ol=2 size=16 stroke=2
+88043170	次のページへ	다음 페이지로	noaa fill=dark ol=2 size=16 stroke=2
+88043B20	回転	회전	noaa fill=dark ol=2 size=16 stroke=2
+880444D0	縮小	축소	noaa fill=dark ol=2 size=16 stroke=2
+88044E80	拡大	확대	noaa fill=dark ol=2 size=16 stroke=2
+88045830	元の位置に戻す	원래 위치로	noaa fill=dark ol=2 size=16 stroke=2
+880461E0	選択画面へ	선택 화면으로	noaa fill=dark ol=2 size=16 stroke=2
 83ECCDF0	あと	남은	box=0,6,32,32 align=l
 83ECD540	あと	남은	box=0,6,32,32 align=l
+83ECDC90	あと	남은	box=0,6,32,32 align=l
+84063F20	サイクル固定	사이클 고정	신호 사이클 고정 표지(신호등 판 아래) box=0,121,104,144
+84037400	減速	감속	감속 표지(신호등 판 아래) box=14,114,90,144
+83F4C500	場内｜警戒	장내|경계	box=34,105,66,116 box=22,115,77,144
+84049BA0	警戒	경계	box=22,115,77,144 noaa
+83F51DB0	遠方｜減速	원방|감속	box=34,105,66,116 box=22,115,77,144
+84054D00	停止	정지	box=23,116,77,144
+83F85310	進入許可灯｜停止	진입 허가등|정지	box=5,68,94,92 align=c box=23,96,77,124
+83F870A0	進入許可灯｜進行	진입 허가등|진행	box=5,68,94,92 align=c box=22,96,77,124
+83F88E30	開通表示灯	개통 표시등	box=5,82,94,105 align=c
+83F8ABC0	開通表示灯	개통 표시등	box=5,82,94,105 align=c
+83F8C950	進入許可灯	진입 허가등	box=5,85,94,109 align=c
+83F8E6E0	進入許可灯	진입 허가등	box=5,85,94,109 align=c
+83F90470	進入許可灯	진입 허가등	box=5,85,94,109 align=c
