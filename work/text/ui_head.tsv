@@ -1,0 +1,19 @@
+번호	원문	번역	메모
+853C3750	メインメニュー	메인 메뉴|	box=0,0,198,50 box=198,0,250,34 font=M italic=0.15 stroke=3
+853C5300	入門編	입문편	box=0,0,188,50 font=M italic=0.15 stroke=3
+853C6EB0	運転乗務	운전 승무	box=0,0,198,50 font=M italic=0.15 stroke=3
+853C8A60	資料館	자료관	box=0,0,188,50 font=M italic=0.15 stroke=3
+853CA610	オプション	옵션	box=0,0,186,50 font=M italic=0.15 stroke=3
+853CC1C0	入門編・のんびり入門	입문편·|느긋한 입문	box=0,0,150,50 box=150,8,280,50 font=M italic=0.15 stroke=3
+853CDD70	入門編・ほんもの入門	입문편·|실전 입문	box=0,0,150,50 box=150,8,280,50 font=M italic=0.15 stroke=3
+853CF920	運転乗務・のんびり運転	운전 승무·|느긋한 운전	box=0,0,150,50 box=150,8,280,50 font=M italic=0.15 stroke=3
+853D14D0	運転乗務・ほんもの運転	운전 승무·|실전 운전	box=0,0,150,50 box=150,8,280,50 font=M italic=0.15 stroke=3
+853D3080	ゲーム設定	게임 설정	box=0,0,203,50 font=M italic=0.15 stroke=3
+853D4C30	コントローラ設定	컨트롤러 설정	box=0,0,203,50 font=M italic=0.15 stroke=3
+853D67E0	サウンド設定	사운드 설정	box=0,0,203,50 font=M italic=0.15 stroke=3
+853D8390	画面表示設定	화면 표시 설정	box=0,0,203,50 font=M italic=0.15 stroke=3
+853D9F40	ロード・セーブ	로드·세이브	box=0,0,203,50 font=M italic=0.15 stroke=3
+853DBAF0	操作説明	조작 설명	box=0,0,203,50 font=M italic=0.15 stroke=3
+8568E790	難易度設定	난이도 설정	box=50,3,215,38 size=22 font=M italic=0.15 fi=15 oi=10 ol=1 noaa
+85694DE0	扉開閉操作	문 개폐 조작	box=50,3,215,38 size=22 font=M italic=0.15 fi=15 oi=10 ol=1 noaa
+8569B430	アナウンス操作	안내 방송 조작	box=50,3,215,38 size=22 font=M italic=0.15 fi=15 oi=10 ol=1 noaa

@@ -1,0 +1,19 @@
+번호	원문	번역	메모
+83ECE3E0	まで	까지	box=0,6,32,32 align=l
+83ECEB30	まで	까지	box=0,6,32,32 align=l
+8434B5F0	非常	비상	box=1,1,57,15 align=c
+84350F80	非常	비상	box=1,1,57,15 align=c
+84354250	非常	비상	box=1,1,57,15 align=c
+8434D680	切	끔	box=1,1,57,15 align=c
+8434EF80	切	끔	box=1,1,57,15 align=c
+843517F0	解除	해제	box=1,1,57,15 align=c
+8434A3A0	非常	비상	box=8,9,64,22 align=c
+8434DD30	切	끔	box=8,11,64,24 align=c
+84359B60	車内信号	차내 신호	box=11,70,69,86 clear=1,14 clear=2,14 clear=3,14 clear=5,14 align=c noaa fi=5 oi=1 ol=1 bmp=Galmuri11-Bold.bdf thin vc
+8435AAB0	車内信号	차내 신호	box=11,70,69,86 clear=0,12 clear=1,12 clear=2,12 clear=4,12 align=c noaa fi=4 oi=0 ol=1 bmp=Galmuri11-Bold.bdf thin vc
+853855B0	サイクル固定	사이클 고정	box=4,56,96,75 clear=2,11 clear=4,11 clear=8,11 clear=13,11 align=c noaa fi=13 oi=2 ol=2 bmp=Galmuri14.bdf vc
+85378880	減	감	box=12,13,44,42 align=c
+83F2D860	Gセンサ	G센서	box=0,0,37,16 align=l noaa fi=15 oi=0 ol=1
+83F2DE70	Gセンサ	G센서	box=0,0,37,16 align=l noaa fi=15 oi=0 ol=1
+84342010	Gメータ	G미터	box=0,0,37,16 align=l noaa fi=15 oi=0 ol=1
+84349810	切	끔	ramp

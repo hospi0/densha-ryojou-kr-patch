@@ -1,0 +1,103 @@
+번호	원문	번역	메모
+854743A0	運転乗務	운전 승무	mode=row wood align=c font=M italic=0.15 size=32 stroke=2 ol=2 olc=150,105,80 fi=1
+85472760	入門編	입문편	mode=row wood align=c font=M italic=0.15 size=32 stroke=2 ol=2 olc=150,105,80 fi=1
+85475FE0	資料館	자료관	mode=row wood align=c font=M italic=0.15 size=32 stroke=2 ol=2 olc=150,105,80 fi=1
+85477C20	オプション	옵션	mode=row wood align=c font=M italic=0.15 size=32 stroke=2 ol=2 olc=150,105,80 fi=1
+85479860	伊予鉄道	이요 철도	mode=row wood align=c font=M italic=0.15 size=32 stroke=2 ol=2 olc=150,105,80 fi=1
+8547B7E0	江ノ島電鉄	에노시마 전철	mode=row wood align=c font=M italic=0.15 size=32 stroke=2 ol=2 olc=150,105,80 fi=1
+8547D760	京福電鉄	케이후쿠 전철	mode=row wood align=c font=M italic=0.15 size=32 stroke=2 ol=2 olc=150,105,80 fi=1
+8547F6E0	函館市交通局	하코다테시 교통국	mode=row wood align=c font=M italic=0.15 size=32 stroke=2 ol=2 olc=150,105,80 fi=1
+85481660	ライブラリ	라이브러리	mode=row wood align=c font=M italic=0.15 size=32 stroke=2 ol=2 olc=150,105,80 fi=1
+85494BB0	タイプ設定	타입 설정	mode=row wood align=c font=M italic=0.15 size=32 stroke=2 ol=2 olc=150,105,80 fi=1
+85496B30	振動設定	진동 설정	mode=row wood align=c font=M italic=0.15 size=32 stroke=2 ol=2 olc=150,105,80 fi=1
+85498AB0	キャリブレーション設定	캘리브레이션 설정	mode=row wood align=c font=M italic=0.15 size=32 stroke=2 ol=2 olc=150,105,80 fi=1
+8546A960	のんびり運転	느긋한 운전	mode=row wood align=c font=M italic=0.15 size=32 stroke=2 ol=2 olc=150,105,80 fi=1
+8546C8E0	ほんもの運転	실전 운전	mode=row wood align=c font=M italic=0.15 size=32 stroke=2 ol=2 olc=150,105,80 fi=1
+8546E860	のんびり入門	느긋한 입문	mode=row wood align=c font=M italic=0.15 size=32 stroke=2 ol=2 olc=150,105,80 fi=1
+854707E0	ほんもの入門	실전 입문	mode=row wood align=c font=M italic=0.15 size=32 stroke=2 ol=2 olc=150,105,80 fi=1
+8549AA30	TYPEA 空気式ブレーキ	TYPE A 공기식 브레이크	mode=row wood align=c font=M italic=0.15 size=32 stroke=2 ol=2 olc=150,105,80 fi=1
+8549C9B0	TYPEB 電気式ブレーキ	TYPE B 전기식 브레이크	mode=row wood align=c font=M italic=0.15 size=32 stroke=2 ol=2 olc=150,105,80 fi=1
+8549E930	振動なし	진동 없음	mode=row wood align=c font=M italic=0.15 size=32 stroke=2 ol=2 olc=150,105,80 fi=1
+854A08B0	微振動	약한 진동	mode=row wood align=c font=M italic=0.15 size=32 stroke=2 ol=2 olc=150,105,80 fi=1
+854A2830	普通の振動	보통 진동	mode=row wood align=c font=M italic=0.15 size=32 stroke=2 ol=2 olc=150,105,80 fi=1
+854A47B0	強振動	강한 진동	mode=row wood align=c font=M italic=0.15 size=32 stroke=2 ol=2 olc=150,105,80 fi=1
+8548BAB0	ゲーム設定	게임 설정	mode=row wood align=c font=M italic=0.15 size=32 stroke=2 ol=2 olc=150,105,80 fi=1
+8548D7B0	コントローラ設定	컨트롤러 설정	mode=row wood align=c font=M italic=0.15 size=32 stroke=2 ol=2 olc=150,105,80 fi=1
+8548F4B0	サウンド設定	사운드 설정	mode=row wood align=c font=M italic=0.15 size=32 stroke=2 ol=2 olc=150,105,80 fi=1
+854911B0	画面表示設定	화면 표시 설정	mode=row wood align=c font=M italic=0.15 size=32 stroke=2 ol=2 olc=150,105,80 fi=1
+85492EB0	ロード・セーブ	로드·세이브	mode=row wood align=c font=M italic=0.15 size=32 stroke=2 ol=2 olc=150,105,80 fi=1
+854835E0	朝	아침	mode=row wood align=c font=M size=30
+85485070	昼	낮	mode=row wood align=c font=M size=29
+85486B00	夕方	저녁	mode=row box=14,7,172,41 align=c font=M size=39
+85488590	夜	밤	mode=row wood align=c font=M size=29
+8548A020	リアル	실시간	mode=row wood align=c font=M italic=0.15 size=32 stroke=2 ol=2 olc=150,105,80 fi=1
+853ABD40	決定	결정	italic=0.2 size=17
+853AC150	キャンセル	취소	italic=0.2 size=17
+853AC560	タイトルに戻る	타이틀로	italic=0.2 size=17
+853AC970	画面位置調整	화면 위치 조정	italic=0.2 size=17
+853ACD80	データロード	데이터 로드	italic=0.2 size=17
+853AD190	データセーブ	데이터 세이브	italic=0.2 size=17
+853AD5A0	ゲーム開始	게임 시작	italic=0.2 size=17
+853AD9B0	使用しません	사용 안 함	italic=0.2 size=17
+7F1F1350	↑上	위	box=6,3,122,21 mode=row align=c noaa bright bmp=Galmuri14.bdf keep=48,54,10 vc
+7F1F19A0	↑上	위	box=6,3,122,21 mode=row align=c noaa bright bmp=Galmuri14.bdf keep=48,54,10 vc
+7F1F1FF0	↓下	아래	box=6,3,122,21 mode=row align=c noaa bright bmp=Galmuri14.bdf keep=48,54,10 vc
+7F1F2640	↓下	아래	box=6,3,122,21 mode=row align=c noaa bright bmp=Galmuri14.bdf keep=48,54,10 vc
+7F1F2C90	←左	왼쪽	box=6,3,122,21 mode=row align=c noaa bright bmp=Galmuri14.bdf keep=43,60,4 vc
+7F1F32E0	←左	왼쪽	box=6,3,122,21 mode=row align=c noaa bright bmp=Galmuri14.bdf keep=43,60,4 vc
+7F1F3930	→右	오른쪽	box=6,3,122,21 mode=row align=c noaa bright bmp=Galmuri14.bdf keep=43,60,4 vc
+7F1F3F80	→右	오른쪽	box=6,3,122,21 mode=row align=c noaa bright bmp=Galmuri14.bdf keep=43,60,4 vc
+7F1F45D0	標準に戻す	기본값으로	box=6,3,122,21 mode=row align=c noaa bright bmp=Galmuri14.bdf vc
+7F1F4C20	標準に戻す	기본값으로	box=6,3,122,21 mode=row align=c noaa bright bmp=Galmuri14.bdf vc
+7F1F5270	調整終了	조정 끝	box=6,3,122,21 mode=row align=c noaa bright bmp=Galmuri14.bdf vc
+7F1F58C0	調整終了	조정 끝	box=6,3,122,21 mode=row align=c noaa bright bmp=Galmuri14.bdf vc
+7F1CB580	アナウンス	안내 방송	box=2,2,62,20 align=c size=15
+7F1D0580	アナウンス	안내 방송	box=2,2,62,20 align=c size=15
+7F1FBD90	アナウンス	안내 방송	box=2,2,62,20 align=c size=15
+853AB100	アナウンス	안내 방송	box=2,2,62,20 align=c size=15
+88038470	アナウンス	안내 방송	box=2,2,62,20 align=c size=15
+A4748050	アナウンス	안내 방송	box=2,2,62,20 align=c size=15
+7F1D0890	警笛	경적	box=2,2,62,20 align=c size=15
+7F1FC0A0	警笛	경적	box=2,2,62,20 align=c size=15
+853AB410	警笛	경적	box=2,2,62,20 align=c size=15
+88038780	警笛	경적	box=2,2,62,20 align=c size=15
+A4747AC0	警笛	경적	box=2,2,62,20 align=c size=15
+853AB720	視点移動	시점 이동	box=2,2,62,20 align=c size=15
+A47485E0	視点移動	시점 이동	box=2,2,62,20 align=c size=15
+853ABA30	扉開閉	문 개폐	box=2,2,62,20 align=c size=15
+88038DA0	扉開閉	문 개폐	box=2,2,62,20 align=c size=15
+A4748B70	扉開閉	문 개폐	box=2,2,62,20 align=c size=15
+88038A90	視点切替	시점 전환	box=2,2,62,20 align=c size=15
+7F1D1350	選択	선택	size=13
+7F1FCB60	選択	선택	size=13
+853A81A0	選択	선택	box=3,2,45,16 clear=7,8 align=c fi=4 oi=7 ol=1 noaa size=12
+A474A590	選択	선택	box=3,2,45,16 clear=7,8 align=c fi=4 oi=7 ol=1 noaa size=12
+7F1D15E0	決定	결정	size=13
+7F1DCEC0	決定	결정	size=13
+7F1FCDF0	決定	결정	size=13
+7F2086D0	決定	결정	size=13
+7F1D1870	戻る	뒤로	size=13
+7F1FD080	戻る	뒤로	size=13
+7F1D1B00	ポーズ解除	일시정지 해제	size=14
+7F1FD310	ポーズ解除	일시정지 해제	size=14
+843432B0	現在時刻	현재 시각	size=22
+843436C0	到着時刻	도착 시각	size=22
+8435CDE0	通過時刻	통과 시각	size=22
+83F2E480	減圧	감압	alpha
+83F2EB70	非常	비상	alpha
+83F2EEC0	加圧	가압	alpha
+83F33D50	保ち	유지	alpha
+8435BA00	減圧	감압	noaa fi=1 oi=10 ol=1 size=17
+8435BD50	非常	비상	noaa fi=1 oi=9 ol=1 size=17
+8435C0A0	加圧	가압	noaa fi=1 oi=9 ol=1 size=17
+8435C3F0	保ち	유지	noaa fi=1 oi=9 ol=1 size=17
+84084FF0	アナウンス忘れ	안내 방송 누락	size=35
+84087B50	オーバーラン	오버런	size=35
+8409FF60	アナウンス忘れ	안내 방송 누락	size=35
+840A2AC0	オーバーラン	오버런	size=35
+840796F0	セクション通過ミス	섹션 통과 실수	size=37
+84094660	セクション通過ミス	섹션 통과 실수	size=37
+840B3330	危険回避失敗	위험 회피 실패	size=37
+840B4C80	危険回避失敗	위험 회피 실패	size=37
+840BE120	始発駅に戻る｜メニューに戻る｜ゲーム設定｜画面位置調整	시발역으로|메뉴로|게임 설정|화면 위치 조정	ramp box=0,0,128,36 box=0,36,128,72 box=0,72,128,108 box=0,108,128,144
+840C0570	距離メータ｜速度メータ｜ナビゲーション｜乗客の反応	거리 미터|속도 미터|내비게이션|승객 반응	ramp box=0,0,128,36 box=0,36,128,72 box=0,72,128,108 box=0,108,128,144

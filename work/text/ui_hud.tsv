@@ -1,0 +1,126 @@
+번호	원문	번역	메모
+83ED0FC0	アナウンスOK！	안내 방송 OK!	평가(초록) size=40
+83ED2E10	セクション通過OK!	섹션 통과 OK!	size=40
+83ED4C60	乗客への配慮	승객 배려	size=40
+83ED6AB0	信号厳守	신호 엄수	size=40
+83ED8900	停止位置OK！	정지 위치 OK!	size=40
+83EDA750	入庫完了	입고 완료	size=40
+83EDC5A0	出庫完了	출고 완료	size=40
+83EDE3F0	定刻運行	정시 운행	size=40
+83EE0240	定通	정시 통과	size=40
+83EE2090	扉閉めOK！	문 닫기 OK!	size=40
+83EE3EE0	扉開けOK！	문 열기 OK!	size=40
+83EE5D30	加点	가점	size=40
+83EE7B80	通過	통과	하늘색 size=40
+83EE99D0	停車	정차	하늘색 size=40
+83EEB820	隠し警笛OK！	숨은 경적 OK!	size=40
+83EED670	警笛OK！	경적 OK!	size=40
+83EEF4C0	停止位置GOOD！	정지 위치 GOOD!	size=40
+83EF1310	制限解除	제한 해제	size=40
+83EF3160	オーバーラン	오버런	평가(빨강) size=40
+83EF4FB0	アナウンス忘れ	안내 방송 누락	size=40
+83EF6E00	信号無視	신호 무시	size=40
+83EF8C50	急ブレーキ	급브레이크	size=40
+83EFAAA0	扉扱いミス	문 조작 실수	size=40
+83EFC8F0	扉開け忘れ	문 열기 누락	size=40
+83EFE740	扉閉め忘れ	문 닫기 누락	size=40
+83F00590	時間遅れ	시간 지연	size=40
+83F023E0	再加速減点	재가속 감점	size=40
+83F04230	一般車両との接触	일반 차량과 접촉	size=40
+83F06080	制限速度オーバー	제한 속도 초과	size=40
+83F07ED0	ATS作動	ATS 작동	size=40
+83F09D20	ポイント操作ミス	포인트 조작 실수	size=40
+83F0BB70	セクション通過ミス	섹션 통과 실수	size=40
+83F0D9C0	標識無視	표지 무시	size=40
+83F0F810	ブレイカーとばし	차단기 끊김	size=40
+83F11660	停止位置ズレ	정지 위치 어긋남	size=40
+83F134B0	危険回避失敗	위험 회피 실패	size=40
+83F15300	安全確認ミス	안전 확인 실수	size=40
+83F17150	減点	감점	size=40
+83F18FA0	電停通過	정류장 통과	size=40
+83F1ADF0	アナウンスミス	안내 방송 실수	size=40
+83F1CC40	警笛忘れ！	경적 누락!	size=40
+83F1EA90	速度制限オーバー	속도 제한 초과	size=40
+83F208E0	扉左右間違い	문 좌우 착오	size=40
+83F22730	構内再加速	구내 재가속	size=40
+83F24580	一時停止OK！	일시 정지 OK!	size=40
+83F2F210	アナウンスOK！	안내 방송 OK!	size=40
+83F31330	制限速度オーバー	제한 속도 초과	size=40
+8407B040	定通ボーナス	정시 통과 보너스	결과 목록 size=37
+8407C710	隠し警笛ボーナス	숨은 경적 보너스	size=37
+8407DDE0	停止位置ボーナス	정지 위치 보너스	size=37
+8407F4B0	扉開け忘れ	문 열기 누락	size=37
+84080B80	扉閉め忘れ	문 닫기 누락	size=37
+84082250	扉左右間違い	문 좌우 착오	size=37
+84083920	扉扱いミス	문 조작 실수	size=37
+84086480	警笛無視	경적 무시	size=37
+84088FE0	信号無視	신호 무시	size=37
+8408A6B0	一般車両との接触	일반 차량과 접촉	size=37
+8408BD80	急ブレーキ	급브레이크	size=37
+8408D450	時間遅れ	시간 지연	size=37
+8408EB20	ポイント操作ミス	포인트 조작 실수	size=37
+840901F0	一時停止ボーナス	일시 정지 보너스	size=37
+840918C0	速度制限オーバー	속도 제한 초과	size=37
+84092F90	再加速減点	재가속 감점	size=37
+84095FB0	定通ボーナス	정시 통과 보너스	size=37
+84097680	隠し警笛ボーナス	숨은 경적 보너스	size=37
+84098D50	停止位置ボーナス	정지 위치 보너스	size=37
+8409A420	扉開け忘れ	문 열기 누락	size=37
+8409BAF0	扉閉め忘れ	문 닫기 누락	size=37
+8409D1C0	扉左右間違い	문 좌우 착오	size=37
+8409E890	扉扱いミス	문 조작 실수	size=37
+840A13F0	警笛無視	경적 무시	size=37
+840A3F50	信号無視	신호 무시	size=37
+840A5620	一般車両との接触	일반 차량과 접촉	size=37
+840A6CF0	急ブレーキ	급브레이크	size=37
+840A83C0	時間遅れ	시간 지연	size=37
+840A9A90	ポイント操作ミス	포인트 조작 실수	size=37
+840AB160	一時停止ボーナス	일시 정지 보너스	size=37
+840AC830	速度制限オーバー	속도 제한 초과	size=37
+840ADF00	再加速減点	재가속 감점	size=37
+840B0590	定刻運行ボーナス	정시 운행 보너스	size=37
+840B1C60	定刻運行ボーナス	정시 운행 보너스	size=37
+83EC4A50	入庫完了停止	입고 완료 정지	HUD 112×32 size=23
+83EC51A0	連結位置	연결 위치	size=23
+83EC58F0	停止位置	정지 위치	size=23
+83EC6040	停止位置	정지 위치	초록 판 size=23
+83EC6790	通過電停	통과 정류장	size=23
+83EC6EE0	ランプ確認	램프 확인	size=23
+83EC7630	速度制限	속도 제한	size=23
+83EC7D80	制限解除	제한 해제	size=23
+83EC84D0	信号停止線	신호 정지선	size=23
+83EC8C20	信号操作停止	신호 조작 정지	size=23
+83EC9370	分岐操作停止	분기 조작 정지	size=23
+83EC9AC0	信号場停止	신호장 정지	size=23
+83ECA210	指示確認停止	지시 확인 정지	size=23
+83ECA960	合格範囲	합격 범위	size=23
+83ECB0B0	警笛鳴せ	경적 울려	size=23
+83ECB800	過　走	과주	빨간 판 size=23
+83ECBF50	通過駅	통과역	흰 판 size=23
+83ECC6A0	入換停止線	입환 정지선	size=23
+83ED0870	停止位置	정지 위치	초록 판 size=23
+83F263D0	一時停止	일시 정지	size=23
+88039670	選択	선택	안내 띠 240×20 bmp=Galmuri14.bdf noaa fill=dark ol=1
+8803A020	戻る	돌아가기	bmp=Galmuri14.bdf noaa fill=dark ol=1
+8803A9D0	決定	결정	bmp=Galmuri14.bdf noaa fill=dark ol=1
+8803B380	左右：選択／上下：演奏番号選択	좌우: 선택 / 상하: 연주 번호 선택	bmp=Galmuri14.bdf noaa fill=dark ol=1
+8803BD30	前の解説へ	이전 해설로	bmp=Galmuri14.bdf noaa fill=dark ol=1
+8803C6E0	キャンセル	취소	bmp=Galmuri14.bdf noaa fill=dark ol=1
+8803D090	次の解説へ	다음 해설로	bmp=Galmuri14.bdf noaa fill=dark ol=1
+8803DA40	拡大写真表示へ	확대 사진 보기	bmp=Galmuri14.bdf noaa fill=dark ol=1
+8803E3F0	前の場所に戻る	이전 장소로 돌아가기	bmp=Galmuri14.bdf noaa fill=dark ol=1
+8803EDA0	終了	종료	bmp=Galmuri14.bdf noaa fill=dark ol=1
+8803F750	メッセージ送り	메시지 넘기기	bmp=Galmuri14.bdf noaa fill=dark ol=1
+88040100	次の場所に行く	다음 장소로 가기	bmp=Galmuri14.bdf noaa fill=dark ol=1
+88040AB0	前の写真へ	이전 사진으로	bmp=Galmuri14.bdf noaa fill=dark ol=1
+88041460	次の写真へ	다음 사진으로	bmp=Galmuri14.bdf noaa fill=dark ol=1
+88041E10	解説に戻る	해설로 돌아가기	bmp=Galmuri14.bdf noaa fill=dark ol=1
+880427C0	説明消去	설명 지우기	bmp=Galmuri14.bdf noaa fill=dark ol=1
+88043170	次のページへ	다음 페이지로	bmp=Galmuri14.bdf noaa fill=dark ol=1
+88043B20	回転	회전	bmp=Galmuri14.bdf noaa fill=dark ol=1
+880444D0	縮小	축소	bmp=Galmuri14.bdf noaa fill=dark ol=1
+88044E80	拡大	확대	bmp=Galmuri14.bdf noaa fill=dark ol=1
+88045830	元の位置に戻す	원래 위치로	bmp=Galmuri14.bdf noaa fill=dark ol=1
+880461E0	選択画面へ	선택 화면으로	bmp=Galmuri14.bdf noaa fill=dark ol=1
+83ECCDF0	あと	남은	box=0,6,32,32 align=l
+83ECD540	あと	남은	box=0,6,32,32 align=l
