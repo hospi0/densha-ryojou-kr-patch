@@ -13,6 +13,8 @@ sys.path.insert(0, HERE)
 import elf_pack as P  # noqa: E402
 import font_kr as F  # noqa: E402
 import gfx_build  # noqa: E402
+import disclaimer_kr  # noqa: E402
+import logo_kr  # noqa: E402
 from iso2048 import Iso  # noqa: E402
 
 ELF_NAME = 'SLPM_651.48'
@@ -79,6 +81,8 @@ def main(out_iso):
         f.seek(F.BASE + F.GLYPH_OFF); f.write(bytes(G))
     open(os.path.join(ROOT, 'work', 'build', ELF_NAME), 'wb').write(elf)
     ntex = gfx_build.apply(out_iso)                  # 4) UI 그림(work/text/ui_*.tsv)
+    ntex += disclaimer_kr.apply(out_iso)             # 5) 시작 경고문(8bpp 사진)
+    ntex += logo_kr.apply(out_iso)                   # 6) 제목 로고(8bpp)
     moved = sum(1 for s in enc if newat[s] != s)
     print('번역 문자열 %d(자리 옮김 %d · 제자리 고정 %d) · 한글 %d자 · UI 그림 %d곳 · ELF 바뀐 바이트 %d(구역 밖 포인터 %d) · 출력 %s'
           % (len(enc), moved, nfix, len(hs), ntex, sum(x != y for x, y in zip(elf, elf0)), len(outside), out_iso))

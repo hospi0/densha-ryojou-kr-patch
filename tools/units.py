@@ -173,9 +173,11 @@ def check():
             src_tok = [x for x in TOK.findall(body) if x not in ('$n',)]
             kr_tok = [x for x in TOK.findall(k) if x not in ('$n',)]
             if src_tok != kr_tok: bad.append((key, '토큰 %s≠%s' % (src_tok, kr_tok))); ok = False; break
-            k = TOKSAFE(k, lambda s: s.translate(HALF))              # 반각 부호 → 전각(«파이널» 과 같게, 숫자·공백은 반각)
+            k = TOKSAFE(k, lambda s: re.sub(r'%[0-9]*[a-z]|[A-Za-z0-9]', lambda m: m.group() if m.group()[0] == '%' else chr(ord(m.group()) + 0xFEE0), s).translate(HALF))   # 반각 영숫자는 글꼴에 없음(실기 «메모리 카드()» — PS2 빠짐) → 전각              # 반각 부호 → 전각(«파이널» 과 같게, 숫자·공백은 반각)
             k = re.sub(r'([，．、。！？…」』）～♪：；・·]) +', r'\1', k)    # 문장부호 뒤 공백 지움(표준 목록 전부)
             if '\n' in body and '$n' not in body: k = k.replace('$n', '\n')    # 원문 줄바꿈이 \n 인 문자열(체험판 안내 ~h24)
+            if 0x144100 <= int(o, 16) < 0x146900:   # 아래 흐르는 띠는 2바이트씩 읽음 → 반각 공백(1바이트)에서 짝이 어긋나 글자 깨짐·크래시(실기 2026-10-24) → 전각 공백
+                k = TOKSAFE(k, lambda s: s.replace(' ', '　'))
             if any(a <= int(o, 16) < b for a, b in CENTER):
                 k, why = center_lines(body, k)
                 if why: bad.append((key, why)); ok = False; break
